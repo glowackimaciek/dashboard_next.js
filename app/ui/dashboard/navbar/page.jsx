@@ -1,5 +1,5 @@
 "use client"
-import styles from "@/app/ui/navbar/navbar.module.css"
+import styles from "@/app/ui/dashboard/navbar/navbar.module.css"
 import { usePathname } from "next/navigation"
 import { FaSearch,  FaRocketchat, FaRegBell, FaGlobe  } from "react-icons/fa";
 

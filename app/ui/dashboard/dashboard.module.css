@@ -10,5 +10,29 @@
 
 .content {
     flex: 4;
-    background-color: var(--bgSoft);
+    background-color: var(--bg);
+}
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 0 40px;
+}
+
+.main {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.side {
+    flex: 1;
 }

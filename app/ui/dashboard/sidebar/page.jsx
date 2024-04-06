@@ -1,6 +1,6 @@
-import styles from "@/app/ui/sidebar/sidebar.module.css"
+import styles from "@/app/ui/dashboard/sidebar/sidebar.module.css"
 import Image from "next/image"
-import MenuLink from "@/app/ui/sidebar/menuLink/MenuLink"
+import MenuLink from "@/app/ui/dashboard/sidebar/menuLink/MenuLink"
 import { FaHome, FaUsers, FaShoppingCart, FaMoneyBill, FaChartLine, FaCog, FaQuestionCircle, FaDollarSign, FaSignOutAlt  } from 'react-icons/fa';
 
 const menuItems = [

@@ -1,7 +1,7 @@
 import styles from "@/app/ui/sidebar/sidebar.module.css"
 import Image from "next/image"
 import MenuLink from "@/app/ui/sidebar/menuLink/MenuLink"
-import { FaHome, FaUsers, FaShoppingCart, FaMoneyBill, FaChartLine, FaCog, FaQuestionCircle } from 'react-icons/fa';
+import { FaHome, FaUsers, FaShoppingCart, FaMoneyBill, FaChartLine, FaCog, FaQuestionCircle, FaDollarSign, FaSignOutAlt  } from 'react-icons/fa';
 
 const menuItems = [
     {
@@ -35,7 +35,7 @@ const menuItems = [
             {
                 title: "Revenue",
                 path: "/dashboard/revenue",
-                icon: <FaChartLine />
+                icon: <FaDollarSign />
             },
             {
                 title: "Reports",
@@ -70,7 +70,7 @@ const Sidebar = () => {
     return (
         <div className={styles.container}>
             <div className={styles.user}>
-                <Image className={styles.userImage} src="/noavatar.png" alt="" width="50" height="50"/>
+                <Image className={styles.userImage} src="/image/noavatar.png" alt="" width="50" height="50"/>
                 <div className={styles.userDetail}>
                     <span className={styles.userName}>Jhon Doe</span>
                     <span className={styles.userTitle}>Administrator</span>
@@ -86,6 +86,10 @@ const Sidebar = () => {
                     </li>
                 ))}
             </ul>
+            <button className={styles.button}>
+                <FaSignOutAlt size={20}/>
+                Logout
+            </button>
         </div>
     )
 }

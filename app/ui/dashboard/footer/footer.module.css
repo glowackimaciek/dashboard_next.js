@@ -1,3 +1,15 @@
 .container {
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    color: var(--textSoft);
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.text {
+    font-weight: 300;
 }

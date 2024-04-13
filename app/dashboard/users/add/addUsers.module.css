@@ -1,0 +1,51 @@
+.main {
+    display: flex;
+    background-color: var(--bg);
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.container {
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form input, .form textarea, .form select {
+    padding: 30px;
+    background-color: var(--bg);
+    border: 2px solid #2e374a;
+    color: var(--text);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.form input, .form select {
+    width: 45%;
+}
+
+.form textarea {
+    width: 100%;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: teal;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #209b87;
+}

@@ -1,7 +1,6 @@
 "use client"
-import React, { useEffect, useRef } from 'react';
 import styles from "@/app/ui/dashboard/chart/chart.module.css"
-import Chart from 'chart.js/auto';
+import { LineChart, CartesianGrid, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 const data = [
     {
@@ -41,55 +40,20 @@ const data = [
     }
 ];
 
-const LineChartComponent = ({ data }) => {
-    const chartRef = useRef(null);
-    const chartInstance = useRef(null);
-
-    useEffect(() => {
-        if (data) {
-            // Jeśli istnieje poprzedni wykres, zniszcz go
-            if (chartInstance.current !== null) {
-                chartInstance.current.destroy();
-            }
-
-            // Stwórz nowy wykres na canvasie
-            chartInstance.current = new Chart(chartRef.current, {
-                type: 'line',
-                data: {
-                    labels: data.map(entry => entry.name),
-                    datasets: [
-                        {
-                            label: 'Visit',
-                            data: data.map(entry => entry.visit),
-                            fill: false,
-                            borderColor: 'rgba(75,192,192,1)',
-                            tension: 0.1
-                        },
-                        {
-                            label: 'Click',
-                            data: data.map(entry => entry.click),
-                            fill: false,
-                            borderColor: 'rgba(255,99,132,1)',
-                            tension: 0.1
-                        }
-                    ]
-                }
-            });
-        }
-
-        // Zwolnij zasoby przy czyszczeniu komponentu
-        return () => {
-            if (chartInstance.current !== null) {
-                chartInstance.current.destroy();
-            }
-        };
-    }, [data]);
-
+const Chart = () => {
     return (
         <div className={styles.container}>
-            <canvas ref={chartRef}></canvas>
-        </div>
-    );
-};
+            <LineChart width={730} height={250} data={data}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="visit" stroke="#8884d8" />
+                <Line type="monotone" dataKey="click" stroke="#82ca9d" />
+            </LineChart></div>
+    )
+}
 
-export default LineChartComponent;
+export default Chart

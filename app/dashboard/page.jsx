@@ -2,7 +2,7 @@ import Card from "@/app/ui/dashboard/card/card";
 import styles from "@/app/ui/dashboard/dashboard.module.css"
 import Transactions from "@/app/ui/dashboard/transactions/transactions";
 import Rightbar from "@/app/ui/dashboard/rightbar/rightbar";
-import LineChartComponent from "@/app/ui/dashboard/chart/chart";
+import Chart from "@/app/ui/dashboard/chart/chart";
 
 const Dashboard = () => {
     return (
@@ -14,7 +14,7 @@ const Dashboard = () => {
                     <Card />
                 </div>
                 <Transactions />
-                <LineChartComponent />        
+                <Chart />        
             </div>
             <div className={styles.side}>
                 <Rightbar />

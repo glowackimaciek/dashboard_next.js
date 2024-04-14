@@ -19,6 +19,7 @@
     border-radius: 10px;
     font-weight: bold;
     color: var(--textSoft);
+    height: max-content;
 }
 
 .imgContainer {

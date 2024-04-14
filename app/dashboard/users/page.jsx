@@ -3,8 +3,13 @@ import styles from "@/app/ui/dashboard/users/users.module.css"
 import Link from "next/link"
 import Image from "next/image"
 import Pagination from "@/app/ui/dashboard/pagination/Pagination"
+import { fetchUsers } from "@/app/lib/data"
 
-const UsersPage = () => {
+const UsersPage = async () => {
+
+    const users = await fetchUsers();
+    console.log(users);
+
     return (
         <div className={styles.main}>
             <div className={styles.container}>
@@ -26,28 +31,29 @@ const UsersPage = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        {users.map(user=> (
+                        <tr key={user.username}>
                             <td>
                                 <div className={styles.user}>
-                                    <Image src="/image/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
-                                    Jhon Doe
+                                    <Image src={user.img || "/image/noavatar.png"} alt="" width={40} height={40} className={styles.userImage}/>
+                                    {user.username}
                                 </div>
                             </td>
                             <td>
-                                jhon@email.com
+                                {user.email}
                             </td>
                             <td>
-                                13.01.2024
+                                {user.createdAt}
                             </td>
                             <td>
-                                Admin
+                                {user.isAdmin ? "Admin" : "Client"}
                             </td>
                             <td>
-                                Active
+                                {user.isActive ? "Active" : "Passive"}
                             </td>
                             <td>
                                 <div className={styles.buttons}>
-                                    <Link href="/dashboard/users/test">
+                                    <Link href={`/dashboard/users/${user._id}`}>
                                         <button className={`${styles.button} ${styles.view}`}>View</button>
                                     </Link>
                                         <button className={`${styles.button} ${styles.delete}`}>Delete</button>
@@ -55,6 +61,7 @@ const UsersPage = () => {
                                 
                             </td>
                         </tr>
+                        ))}
                     </tbody>
                 </table>
                 <Pagination />
